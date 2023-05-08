@@ -1,0 +1,9 @@
+.header {
+  width: 50%;
+  background: brown;
+}
+.header.w-100 {
+  width: 100%;
+}
+
+/*# sourceMappingURL=stylesass.css.map */

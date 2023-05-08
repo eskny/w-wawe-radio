@@ -1,0 +1,126 @@
+@mixin media($media) {
+
+    @each $size,
+    $resolution in $sizes {
+        @if $media ==$size {
+            @media only screen and (max-width: $resolution) {
+                @content
+            }
+        }
+    }
+}
+
+@mixin font ($font-family, $font-path, $font-weight, $font-style: 'normal') {
+    @font-face {
+        font-family: $font-family;
+        src: local($font-path),
+        url('../fonts/#{$font-path}.woff2') format('woff2'),
+        url('../fonts/#{$font-path}.woff') format('woff');
+        font-style: normal;
+        font-weight: $font-weight;
+        font-display: swap;
+    }
+}
+
+@mixin violet-btn {
+    display: inline-block;
+
+    padding: 25px 54px;
+    margin-bottom: 60px;
+
+    border-radius: 40px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+
+    color: #fff;
+    background-color: $violet;
+
+    transition: background-color .3s ease-in-out, outline .3s ease-in-out;
+}
+
+@mixin violet-btn-focus {
+    outline: 2px solid $violet-dark;
+    outline-offset: -2px;
+    background-color: $violet-light;
+    transition: background-color .3s ease-in-out, outline .3s ease-in-out;
+}
+
+@mixin violet-btn-hover {
+    outline: none;
+    background-color: $violet-light;
+    transition: background-color .3s ease-in-out, outline .3s ease-in-out;
+}
+
+@mixin transparent-btn {
+    position: relative;
+
+    border: 2px solid $dark-color;
+    border-radius: 77px;
+
+    color: $dark-color;
+    font-weight: 500;
+
+    transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+@mixin transparent-btn-focus {
+    outline: none;
+    background-color: $violet-light;
+    transition: background-color 0.3s ease-in-out, color .3s ease-in-out;
+}
+
+@mixin transparent-btn-hover {
+    background-color: $dark-color;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out, color .3s ease-in-out;
+}
+
+@mixin transparent-btn-active {
+    border-color: $violet-dark;
+    color: #fff;
+    background-color: $violet-dark;
+    transition: background-color 0.3s ease-in-out, color .3s ease-in-out, border-color .3s ease-out;
+}
+
+@mixin stats {
+    stroke: $violet-dark;
+    fill: $violet-dark;
+    transition: fill 0.3s ease-in-out, stroke 0.3s ease-in-out;
+}
+
+@mixin choices-focus {
+    border: 1px solid $violet;
+    z-index: 10;
+}
+
+@mixin choices-dropdown {
+    top: 35px;
+    padding-top: 6px;
+    z-index: 0;
+}
+
+@mixin choices-highlighted {
+    background-color: $violet-light;
+    color: $dark-color;
+}
+
+@mixin form-focus {
+    outline: none;
+    border-color: $violet-light;
+    background-color: #292E39;
+}
+
+@mixin form-hover {
+    outline: none;
+    border-color: #fff;
+    background-color: #292E39;
+}
+
+@mixin form-active {
+    outline: none;
+    border-color: #fff;
+    background-color: transparent;
+    color: #fff;
+}
